@@ -1,0 +1,156 @@
+@font-face {
+  font-family: Rick-and-morty;
+  src: url("../fonts/get_schwifty.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: monserrat;
+  src: url("../fonts/Montserrat-Black.ttf") format("truetype"),
+    url("../fonts/Montserrat-Bold.ttf") format("truetype"),
+    url("../fonts/Montserrat-Regular.ttf") format("truetype"),
+    url("../fonts/Montserrat-VariableFont_wght.ttf") format("truetype"),
+    url("../fonts/Montserrat-SemiBold.ttf") format("truetype"),
+    url("../fonts/Montserrat-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: monserrat;
+  src: url("//fonts/Montserrat-ExtraBold.ttf");
+  font-style: normal;
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: monserrat;
+  src: url("../fonts/Montserrat-ExtraLight.ttf");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: monserrat;
+  src: url("../fonts/Montserrat-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: monserrat;
+  src: url("../fonts/Montserrat-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: monserrat;
+  src: url("../fonts/Montserrat-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+:root {
+  /** font family */
+  --rm: "Rick-and-morty";
+  --monserrat: "monserrat";
+  /* Css Hex */
+  --phosphorescent-green: #84ff00ff;
+  --light-blue: #3777ffff;
+  --dark-blue: #040887ff;
+  --hot-magenta: #e236cbff;
+  --black: #000000ff;
+
+  /* CSS HSL */
+  --darkAlpha: hsla(89, 100%, 50%, 0);
+  --phosphorescent-green: hsla(89, 100%, 50%, 1);
+  --light-blue: hsla(221, 100%, 61%, 1);
+  --dark-blue: hsla(238, 94%, 27%, 1);
+  --hot-magenta: hsla(308, 75%, 55%, 1);
+  --black: hsla(0, 0%, 0%, 1);
+
+  /**  variables helpers */
+  --log: solid 2px red;
+
+  /*^ Animations */
+
+  /*TODO: animation floating start*/
+  --floating: floating 1s linear alternate infinite;
+}
+@keyframes floating {
+  0% {
+    transform: translate(0, 7px);
+    text-shadow: 0 0 0 var(--phosphorescent-green);
+  }
+  100% {
+    transform: translate(0px, 0);
+    text-shadow: 0 0 20px var(--phosphorescent-green);
+  }
+}
+@property --animateDeg {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes rotate {
+  0% {
+    --animateDeg: 0deg;
+  }
+  100% {
+    --animateDeg: 360deg;
+  }
+}
+@property --animatePos {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+@keyframes translatePos {
+  0% {
+    --animatePos: 0%;
+  }
+  100% {
+    --animatePos: 100%;
+  }
+}
+
+/*TODO: animation floating end*/
+
+/*? class helpers */
+.cosmicBackground {
+  background: linear-gradient(
+    var(--animateDeg),
+    var(--hot-magenta),
+    var(--light-blue),
+    var(--darkAlpha)
+  );
+  color: rgb(0, 234, 255);
+}
+
+/*&  reset  styles*/
+
+body {
+  font-family: var(--monserrat);
+  background: url("./images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-weight: 100;
+}
+
+h3 {
+  font-family: var(--rm);
+  -webkit-text-stroke: 0.5px greenyellow;
+  letter-spacing: 3px;
+  font-weight: 100px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
