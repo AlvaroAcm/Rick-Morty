@@ -1,7 +1,6 @@
 import react, { useEffect, useState } from "react";
 import {
   getAllCharacters,
-  getAllPages,
 } from "../../store/slices/charactersSlice/charactersSlice";
 import { useDispatch, useSelector } from "react-redux";
 import "./home.css";
@@ -9,28 +8,20 @@ import Card from "../Card/Card";
 import { formattedDateDMY } from "../../services/commonFunctions/formattedDateDMY";
 import Pagination from "../Pagination/Pagination";
 
+
 const Home = () => {
-  const[nextPage, setNextPage] = useState(1)
   const dispatch = useDispatch();
 
-  const handleNextPage = ()=>{
-    setNextPage(nextPage + 1)
-  }
+  const { characters, info} = useSelector(
+    ({ characters }) => characters
+  );
 
-  useEffect(() => {
-    dispatch(getAllCharacters(nextPage));
-    dispatch(getAllPages());
-  }, [dispatch, nextPage]);
-
-  const { characters, info } = useSelector(({ characters }) => characters);
-
- const resultString = info && info.next
-
- const numberPage = resultString && resultString[resultString.length - 1]
-
- console.log({numberPage});
   
+  useEffect(() => {
+    dispatch(getAllCharacters());
+  }, [dispatch]);
 
+  
   return (
     <div>
       <header></header>
@@ -39,7 +30,7 @@ const Home = () => {
           characters.results.map((character) => {
             return (
               <Card
-                key={character.name}
+                key={character.id}
                 name={character.name}
                 image={character.image}
                 status={character.status}
@@ -52,13 +43,11 @@ const Home = () => {
               />
             );
           })}
-
       </div>
-          <footer>
-            <Pagination
-            currentPage={nextPage}
-            nextPage={handleNextPage}/>
-          </footer>
+      <footer>{<Pagination
+      totalPages={info.pages}
+      
+      />}</footer>
     </div>
   );
 };
