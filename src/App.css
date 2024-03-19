@@ -1,0 +1,5 @@
+#particlesCanvas{
+  position: fixed;
+  z-index: -1;
+}
+
