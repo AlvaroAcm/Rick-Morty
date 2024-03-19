@@ -1,0 +1,61 @@
+.input__container {
+  color: #fff;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.search__container,
+.select__container,
+.div__radio__input--container {
+    flex-basis: 10rem;
+}
+
+.search__container {
+  padding: 5px 10px;
+  background-color: #fff;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  border-radius: 10px;
+}
+.search__container label {
+  color: var(--brightBlue);
+}
+
+.search__container input {
+  background: none;
+  border: none;
+}
+.search__container input:focus {
+  outline: none;
+}
+
+.search__container input[type="search"] {
+  font-family: var(--rm);
+  letter-spacing: 0.8px;
+  -webkit-text-stroke: 0.2px var(--brightBlue);
+}
+
+.select__container select:focus {
+  outline: none;
+}
+
+.select__container option {
+  display: flex;
+  padding: 5px 15px;
+  gap: 5px;
+}
+
+.radio__container > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.alive__container input[type="radio"]:checked {
+  appearance: none;
+}
+

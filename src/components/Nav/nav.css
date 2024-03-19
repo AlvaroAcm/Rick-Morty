@@ -4,18 +4,36 @@
     justify-content: space-between;
     align-items: center;
     background-color: transparent;
-    max-height: 200px;
-    background: linear-gradient(var(--animateDeg), var(--hot-magenta),var(--light-blue), var(--darkAlpha));
-    color: rgb(0, 234, 255);
-    
+    flex-wrap: wrap;
 }
+
+.nav-container > div:first-child{
+    display: flex;
+    justify-content:center;
+    margin: 20px;
+}
+
+.nav-container div {
+    width: 25%;
+}
+
+.nav-container div > img{
+    height: 130px;
+    width: 130px;
+}
+
+
+.nav-container div, .nav-container nav{
+    flex-grow: 1;
+}
+
 
 h1{
     width: fit-content;
 }
 
 nav{
-    width: 60%;
+    display: flex;
 }
 
 nav ul {

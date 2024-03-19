@@ -7,6 +7,7 @@ const initialState = {
   nextPage: null,
   prevPage: null,
   currentPage: 1,
+  filterValue: {},
 };
 
 export const characterSlice = createSlice({
@@ -27,6 +28,9 @@ export const characterSlice = createSlice({
     },
     setCurrentPage: (state, actions) => {
       state.currentPage = actions.payload;
+    },
+    setFilterValue: (state, actions) =>{
+      state.filterValue = actions.payload
     }
   }
 })
@@ -37,12 +41,13 @@ export const {
   setCurrentPage,
   setNextPage,
   setPrevPage,
+  setFilterValue,
 } = characterSlice.actions;
 
 export default characterSlice.reducer;
 
-export const getAllCharacters = (number) => (dispatch) => {
-  getCharacters(number)
+export const getAllCharacters = (number, queryParams) => (dispatch) => {
+  getCharacters(number, queryParams )
     .then((res) => {
       dispatch(setCharacters(res));
       dispatch(setInfoCharacters(res.info));

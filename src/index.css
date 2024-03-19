@@ -70,6 +70,9 @@
   --hot-magenta: hsla(308, 75%, 55%, 1);
   --black: hsla(0, 0%, 0%, 1);
 
+  /* RGB */
+  --brightBlue:rgb(0, 234, 255);
+
   /**  variables helpers */
   --log: solid 2px red;
 
@@ -102,6 +105,8 @@
     --animateDeg: 360deg;
   }
 }
+
+
 @property --animatePos {
   syntax: "<percentage>";
   inherits: false;
@@ -134,17 +139,17 @@
 
 body {
   font-family: var(--monserrat);
-  background: url("./images/background.jpg");
+  background:#1a1a1a;
   background-repeat: no-repeat;
   background-size: cover;
-  font-weight: 100;
+  overflow-x: hidden;
 }
 
 h3 {
   font-family: var(--rm);
   -webkit-text-stroke: 0.5px greenyellow;
   letter-spacing: 3px;
-  font-weight: 100px;
+  font-weight: 100;
 }
 
 * {
@@ -154,3 +159,24 @@ h3 {
   text-decoration: none;
   list-style: none;
 }
+
+/*? Scroll bar styles */
+
+::-webkit-scrollbar{
+  width: 5px;
+}
+
+::-webkit-scrollbar-track{
+  background: #000;
+  
+}
+
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(27deg  ,var(--hot-magenta),var(--light-blue), var(--darkAlpha));
+}
+
+::-webkit-scrollbar-button{
+  display: none;
+}
+
+
